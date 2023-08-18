@@ -10,7 +10,7 @@ public class Task6BraceBalance {
          * sequence - последовательность скобок []{}() длины до 10^5
          * Выход: true/false, является ли строка ПСП
          */
-        String[] parts = s.split("");
+        String[] parts = sequence.split("");
         Stack<String> stack = new Stack<>();
 
         for (String part : parts) {
