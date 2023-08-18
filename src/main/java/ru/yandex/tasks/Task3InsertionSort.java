@@ -15,12 +15,16 @@ public class Task3InsertionSort {
         output.add(numbers.get(0));
         for (int i = 1; i < numbers.size(); ++i) {
             int elem = numbers.get(i);
+            boolean found = false;
             // вставить elem в нужную позицию в output
             for (int j = 0; j < output.size(); ++j) {
-                if (output.get(j) >= elem) {
+                if (output.get(j) > elem) {
                     output.add(j, elem);
+                    found = true;
+                    break;
                 }
             }
+            if (!found) output.add(output.size(), elem);
         }
         return output;
     }
