@@ -11,8 +11,22 @@ public class Task2SelectionSort {
          * numbers: массив целых чисел, -10^5 <= numbers[i] <= 10^5, длина массива до 10^5
          * Выход: отсортированный (сортировкой выбором!) numbers
          */
-        // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ WRITE CODE HERE (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-        return null;
+        for (int j = 0; j < numbers.size(); ++j) {
+            int maxelem = numbers.get(j);
+            int m = j;
+            for (int i = j + 1; i < numbers.size(); ++i) {
+                int elem = numbers.get(i);
+                if (maxelem < elem) {
+                    maxelem = Math.max(maxelem, elem);
+                    m = i;
+                }
+            }
+            if (m == j) continue;
+            int tmp = numbers.get(m);
+            numbers.set(m, numbers.get(j));
+            numbers.set(j, tmp);
+        }
+        return numbers;
     }
 
     public static void selfCheck() {
