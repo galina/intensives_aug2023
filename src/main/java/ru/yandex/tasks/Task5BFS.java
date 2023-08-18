@@ -3,6 +3,7 @@
 package ru.yandex.tasks;
 
 import java.util.Arrays;
+import java.util.ArrayDeque;
 
 public class Task5BFS {
     public static void runSearch() {
@@ -19,8 +20,20 @@ public class Task5BFS {
          * tree - двумерный массив, tree[i][0] - номер левого сына, tree[i][1] - номер правого сына (если нет левого / правого сына, соотв. элемент -1).
          * root - корень, откуда нужно начинать обход
          */
-        // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ WRITE CODE HERE (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-        return null;
+        int[] result = new int[tree.length];
+        ArrayDeque<Integer> queue = new ArrayDeque<>();
+        queue.push(root);
+        int pos = 0;
+        while (!queue.isEmpty()) {
+            int elem = queue.pop();
+            result[pos] = elem;
+            if (tree[elem][0] != -1)
+                queue.push(tree[elem][0]);
+            if (tree[elem][1] != -1)
+                queue.push(tree[elem][1]);
+            pos += 1;
+        }
+        return result;
     }
 
     public static void selfCheck() {
