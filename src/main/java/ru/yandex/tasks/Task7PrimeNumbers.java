@@ -11,26 +11,27 @@ public class Task7PrimeNumbers {
          * 2 <= N <= 10^6
          * Выход: отсортированный массив всех простых чисел от 2 до N
          */
-        ArrayList<Integer> primes = new ArrayList<>();
+        boolean[] primes = new boolean[N + 1];
         for (int i = 2; i <= N; ++i) {
-            if (isPrime(i)) {
-                primes.add(i);
+            primes[i] = true;
+        }
+        int primesCount = N - 2;
+        for (int i = 2; i <= N; ++i) {
+            if (primes[i] && i <= Math.sqrt(N)) {
+                for (int j = i * i; j <= N; j += i) {
+                    primes[j] = false;
+                    primesCount -= 1;
+                }
             }
         }
-        int[] result = new int[primes.size()];
-        for (int i = 0; i < result.length; ++i) {
-            result[i] = primes.get(i);
+        int[] result = new int[primesCount];
+        for (int i = 0, j = 0; i <= N; ++i) {
+            if (primes[i]) {
+                result[j] = i;
+                j += 1;
+            }
         }
         return result;
-    }
-
-    public static boolean isPrime(int i) {
-        for (int j = 2; j < Math.sqrt(i); ++j) {
-            if (i % j == 0) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public static void selfCheck() {
