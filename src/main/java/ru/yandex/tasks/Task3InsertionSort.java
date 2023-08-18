@@ -11,8 +11,17 @@ public class Task3InsertionSort {
          * numbers: массив целых чисел, -10^5 <= numbers[i] <= 10^5, длина массива до 10^5
          * Выход: отсортированный (сортировкой вставками!) numbers
          */
-        // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ WRITE CODE HERE (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-        return null;
+        ArrayList<Integer> output = new ArrayList<>();
+        for (int i = 0; i < numbers.size(); ++i) {
+            // вставить numbers.get(i) в нужную позицию в output
+            for (int j = 0; j < output.size(); ++j) {
+                int elem = numbers.get(i);
+                if (output.get(j) >= elem) {
+                    output.add(j, elem);
+                }
+            }
+        }
+        return output;
     }
 
     public static void selfCheck() {
