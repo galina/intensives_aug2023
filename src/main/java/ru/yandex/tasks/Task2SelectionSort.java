@@ -12,12 +12,12 @@ public class Task2SelectionSort {
          * Выход: отсортированный (сортировкой выбором!) numbers
          */
         for (int j = 0; j < numbers.size(); ++j) {
-            int maxelem = numbers.get(j);
+            int minelem = numbers.get(j);
             int m = j;
             for (int i = j + 1; i < numbers.size(); ++i) {
                 int elem = numbers.get(i);
-                if (maxelem < elem) {
-                    maxelem = Math.max(maxelem, elem);
+                if (minelem > elem) {
+                    minelem = elem;
                     m = i;
                 }
             }
