@@ -12,10 +12,11 @@ public class Task3InsertionSort {
          * Выход: отсортированный (сортировкой вставками!) numbers
          */
         ArrayList<Integer> output = new ArrayList<>();
-        for (int i = 0; i < numbers.size(); ++i) {
-            // вставить numbers.get(i) в нужную позицию в output
+        output.add(numbers.get(0));
+        for (int i = 1; i < numbers.size(); ++i) {
+            int elem = numbers.get(i);
+            // вставить elem в нужную позицию в output
             for (int j = 0; j < output.size(); ++j) {
-                int elem = numbers.get(i);
                 if (output.get(j) >= elem) {
                     output.add(j, elem);
                 }
