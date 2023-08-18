@@ -13,7 +13,9 @@ public class Task8BinarySearch {
         int l = 0, r = sortedList.length - 1;
         while (l < r) {
             int mid = (l + r) / 2;
-            if (sortedList[mid] <= number) {
+            if (sortedList[mid] == number) {
+                l = mid;
+            } else if (sortedList[mid] < number) {
                 l = mid + 1;
             } else {
                 r = mid;
