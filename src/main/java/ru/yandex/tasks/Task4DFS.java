@@ -20,8 +20,18 @@ public class Task4DFS {
          * tree - двумерный массив, tree[i][0] - номер левого сына, tree[i][1] - номер правого сына (если нет левого / правого сына, соотв. элемент -1)
          * root - корень, откуда нужно начинать обход
          */
-        // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ WRITE CODE HERE (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-        return null;
+        int[] result = new int[tree.length];
+        dfs(result, tree, root, 0);
+        return result;
+    }
+
+    public static int dfs(int[] result, int[][] tree, int root, int pos) {
+        if (tree[root][0] != -1)
+            pos = dfs(result, tree, tree[root][0], pos);
+        if (tree[root][1] != -1)
+            pos = dfs(result, tree, tree[root][0], pos);
+        result[pos] = root;
+        return pos + 1;
     }
 
     public static void selfCheck() {
