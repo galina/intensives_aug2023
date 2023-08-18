@@ -29,7 +29,7 @@ public class Task4DFS {
         if (tree[root][0] != -1)
             pos = dfs(result, tree, tree[root][0], pos);
         if (tree[root][1] != -1)
-            pos = dfs(result, tree, tree[root][0], pos);
+            pos = dfs(result, tree, tree[root][1], pos);
         result[pos] = root;
         return pos + 1;
     }
