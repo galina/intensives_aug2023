@@ -9,7 +9,14 @@ public class Task9ReverseList {
          * head - голова списка
          * Выход: новая голова списка
          */
-        // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ WRITE CODE HERE (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
+        Node cur = head;
+        Node prev = null;
+        while (cur != null) {
+            Node next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
         return null;
     }
 
